@@ -1,0 +1,14 @@
+{
+  "name": "digifolk-mexico",
+  "version": "1.0.0",
+  "description": "API para la comparación de textos de cancions folcloricas",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alejandro Romero",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
