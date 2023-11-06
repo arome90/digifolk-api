@@ -12,7 +12,7 @@ routerMexico.use(express.json());
 
 
 app.get('/' ,(req, res) => {
-    const python = spawn('python3', ['python.py', "Fernando"]);
+    const python = spawn('python3', ['textComp.py']);
 
     //python.stdin.write("Ale");
     //python.stdin.end();
