@@ -1,9 +1,0 @@
-POST http://localhost:3000/api/textos/mexico
-Content-Type: application/json
-
-{
-    "id": 3,
-    "titulo": "Un poco loco",
-    "letra": "Que el cielo no es azul ¡Ay, mi amor, ay, mi amor! Que es rojo, dices tú ¡Ay, mi amor, ay, mi amor!",
-    "estilo": "coco"
-}
