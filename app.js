@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const {spawn} = require('child_process');
 
 const {textos} = require('./textos')
 
@@ -11,7 +12,24 @@ routerMexico.use(express.json());
 
 
 app.get('/' ,(req, res) => {
-    res.send('Mi primer server con express');
+    const python = spawn('python3', ['python.py', "Fernando"]);
+
+    //python.stdin.write("Ale");
+    //python.stdin.end();
+
+    let dataToSend = '';
+    python.stdout.on('data', function (data) {
+        console.log('Pipe data from python script ...');
+        dataToSend = data.toString();
+    });
+
+    python.on('close', (code) => {
+        console.log(`child process close all stdio with code ${code}`);
+        // send data to browser
+        res.send(dataToSend)
+    });
+
+    //res.send('Mi primer server con express');
 });
 
 routerMexico.get('/:estilo', (req, res) =>{

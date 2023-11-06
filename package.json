@@ -9,6 +9,7 @@
   "author": "Alejandro Romero",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "python": "^0.0.4"
   }
 }
