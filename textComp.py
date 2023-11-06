@@ -26,9 +26,3 @@ def calcular_similitud(texto1, texto2):
     return similitud
 
 
-# Recuperamos los textos mandados
-texto1 = sys.argv[1];
-texto2 = sys.argv[2];
-
-similitud = calcular_similitud(texto1, texto2)
-print("La similitud entre los textos es:", similitud)
