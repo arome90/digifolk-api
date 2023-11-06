@@ -12,7 +12,12 @@ routerMexico.use(express.json());
 
 
 app.get('/' ,(req, res) => {
-    const python = spawn('python3', ['textComp.py']);
+
+    // Cambiar estos textos por los recogidos de la API 
+    let texto1 = "No te sientas obligado a realizarme una donación, pero cada aportación me ayuda a mantener el sitio en activo para que continúe existiendo y me motiva a continuar creando nuevo contenido."
+    let texto2 = "No te sientas obligado a realizarme una aportación, pero cada donación me ayuda a mantener el sitio online para que continúe existiendo y me motiva a seguir haciendo nuevo contenido."
+
+    const python = spawn('python3', ['textComp.py', texto1, texto2]);
 
     //python.stdin.write("Ale");
     //python.stdin.end();
