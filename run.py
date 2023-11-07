@@ -1,10 +1,13 @@
-from flask import Flask
+from flask import Flask, render_template, request, redirect, url_for
 import textComp
 
 app = Flask(__name__)
-@app.route('/')
-def hello_world():
-    texto1 = "No te sientas obligado a realizarme una donación, pero cada aportación me ayuda a mantener el sitio en activo para que continúe existiendo y me motiva a continuar creando nuevo contenido."
-    texto2 = "No te sientas obligado a realizarme una aportación, pero cada donación me ayuda a mantener el sitio online para que continúe existiendo y me motiva a seguir haciendo nuevo contenido."
-
-    return 'La similitud es de ' + str(textComp.calcular_similitud(texto1, texto2))
+@app.route('/api/textos/', methods=["GET", "POST"])
+def getInformationAndProcess():
+    contentJson = request.json
+    titulo1 = str(contentJson['Mexico'][0])
+    response = ''
+    #for field_dict in contentJson['Mexico']:
+    #    str(textComp.calcular_similitud(field_dict, field_dict))
+    #return str(titulo1)
+    return 'Numero de elementos ' + str(len(contentJson['Mexico'])) + ' La similitud entre ' + str(contentJson['Mexico'][0]['titulo']) + ' y ' +str(contentJson['Mexico'][1]['titulo']) + ' es de ' + str(textComp.calcular_similitud(contentJson['Mexico'][0]['letra'], contentJson['Mexico'][1]['letra']))
