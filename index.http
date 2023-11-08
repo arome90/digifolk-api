@@ -1,18 +1,19 @@
 POST http://localhost:3000/api/textos/
 Content-Type: application/json
 
-{ "Mexico": [{
-    "id": 3,
-    "titulo": "Un poco loco",
-    "letra": "Que el cielo no es azul ¡Ay, mi amor, ay, mi amor! Que es rojo, dices tú ¡Ay, mi amor, ay, mi amor!",
-    "estilo": "coco"
-
-},{
-    "id": 1,
-    "titulo": "Lloroma",
-    "letra": "asdasdasdsdsadasdasdsa",
-    "MarcadoresEnvolvente": "coco"
-
-}
-]
+{
+    "Mexico": [
+        {
+            "id": 3,
+            "titulo": "Un poco loco",
+            "letra": "Que el cielo no es azul ¡Ay, mi amor, ay, mi amor! Que es rojo, dices tú ¡Ay, mi amor, ay, mi amor!",
+            "estilo": "coco"
+        },
+        {
+            "id": 1,
+            "titulo": "Lloroma",
+            "letra": "asdasdasdsdsadasdasdsa",
+            "MarcadoresEnvolvente": "coco"
+        }
+    ]
 }
