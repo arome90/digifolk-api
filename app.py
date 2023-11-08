@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
-import textComp
+import textComp 
+import LevenshteinDistances
 import json
 
 app = Flask(__name__)
@@ -14,6 +15,7 @@ def getInformationAndProcess():
         response = {}
 
         response["TextSimilarity"] = textComp.calcular_similitud(contentJson['Mexico'][0]['letra'], contentJson['Mexico'][1]['letra'])
+        response["levenshtein"] = LevenshteinDistances.levenshteinDistanceDP(contentJson['Mexico'][0]['letra'], contentJson['Mexico'][1]['letra'])
         return response    
 
 @app.route('/')
