@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import textComp 
 import LevenshteinDistances
 import hermetricsMed
+import SemanticTextSimilarity
 import json
 
 app = Flask(__name__)
@@ -19,7 +20,7 @@ def getInformationAndProcess():
         response["levenshteinCustom"] = LevenshteinDistances.levenshteinDistanceDP(contentJson['Mexico'][0]['letra'], contentJson['Mexico'][1]['letra'])
         response["levenshteinHermetrics"] = hermetricsMed.hermetricsLevenstein(contentJson['Mexico'][0]['letra'], contentJson['Mexico'][1]['letra'])
         response["comparativaHermetrics"] = hermetricsMed.hermetricsComp(contentJson['Mexico'][0]['letra'], contentJson['Mexico'][1]['letra'])
-
+        response["SemanticTextSimilarity"] = SemanticTextSimilarity.predictionComparision(contentJson['Mexico'][0]['letra'], contentJson['Mexico'][1]['letra'])
         
         return response    
 
