@@ -3,7 +3,7 @@ import textComp
 import LevenshteinDistances
 import hermetricsMed
 import SemanticTextSimilarity
-import json
+import TopicModelingGensim2
 
 app = Flask(__name__)
 @app.route('/api/textos/', methods=["GET", "POST"])
@@ -21,7 +21,8 @@ def getInformationAndProcess():
         response["levenshteinHermetrics"] = hermetricsMed.hermetricsLevenstein(contentJson['Mexico'][0]['letra'], contentJson['Mexico'][1]['letra'])
         response["comparativaHermetrics"] = hermetricsMed.hermetricsComp(contentJson['Mexico'][0]['letra'], contentJson['Mexico'][1]['letra'])
         response["SemanticTextSimilarity"] = SemanticTextSimilarity.predictionComparision(contentJson['Mexico'][0]['letra'], contentJson['Mexico'][1]['letra'])
-        
+        #response["SimilarityCheck"] = SimilarityCheckMed.similarityChecker(contentJson['Mexico'][0]['letra'], contentJson['Mexico'][1]['letra'])
+        response["JensenShanon2"] = TopicModelingGensim2.calcularGensim(contentJson['Mexico'], contentJson['Mexico'][0]['letra'])
         return response    
 
 @app.route('/')
