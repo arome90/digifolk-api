@@ -13,7 +13,7 @@ def getInformationAndProcess():
         return 'Esto es la api de Digifolk! Por favor, elige la opción y manda la información correcta'
     if request.method == 'POST':
         contentJson = request.json
-        titulo1 = str(contentJson['Mexico'][0])
+        titulo1 = str(contentJson[0])
         response = {}
 
         response["TextSimilarity"] = textComp.calcular_similitud(contentJson['Mexico'][0]['letra'], contentJson['Mexico'][1]['letra'])
