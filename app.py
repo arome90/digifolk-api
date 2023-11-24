@@ -13,16 +13,17 @@ def getInformationAndProcess():
         return 'Esto es la api de Digifolk! Por favor, elige la opción y manda la información correcta'
     if request.method == 'POST':
         contentJson = request.json
-        titulo1 = str(contentJson[0])
+        titulo1 = str(contentJson[0]["Obra"])
+        titulo2 = str(contentJson[1]["Obra"])
         response = {}
-
-        response["TextSimilarity"] = textComp.calcular_similitud(contentJson[0]['letra'], contentJson[1]['letra'])
-        response["levenshteinCustom"] = LevenshteinDistances.levenshteinDistanceDP(contentJson[0]['letra'], contentJson[1]['letra'])
-        response["levenshteinHermetrics"] = hermetricsMed.hermetricsLevenstein(contentJson[0]['letra'], contentJson[1]['letra'])
-        response["comparativaHermetrics"] = hermetricsMed.hermetricsComp(contentJson[0]['letra'], contentJson[1]['letra'])
-        response["SemanticTextSimilarity"] = SemanticTextSimilarity.predictionComparision(contentJson[0]['letra'], contentJson[1]['letra'])
-        #response["SimilarityCheck"] = SimilarityCheckMed.similarityChecker(contentJson[0]['letra'], contentJson[1]['letra'])
-        response["JensenShanon2"] = TopicModelingGensim2.calcularGensim(contentJson, contentJson[0]['letra'])
+        response["1-comparacion"] = titulo1 + "-" + titulo2
+        response["TextSimilarity"] = textComp.calcular_similitud(contentJson[0]['Letra concatenada'], contentJson[1]['Letra concatenada'])
+        response["levenshteinCustom"] = LevenshteinDistances.levenshteinDistanceDP(contentJson[0]['Letra concatenada'], contentJson[1]['Letra concatenada'])
+        response["levenshteinHermetrics"] = hermetricsMed.hermetricsLevenstein(contentJson[0]['Letra concatenada'], contentJson[1]['Letra concatenada'])
+        response["comparativaHermetrics"] = hermetricsMed.hermetricsComp(contentJson[0]['Letra concatenada'], contentJson[1]['Letra concatenada'])
+        response["SemanticTextSimilarity"] = SemanticTextSimilarity.predictionComparision(contentJson[0]['Letra concatenada'], contentJson[1]['Letra concatenada'])
+        #response["SimilarityCheck"] = SimilarityCheckMed.similarityChecker(contentJson[0]['Letra concatenada'], contentJson[1]['Letra concatenada'])
+        #response["JensenShanon2"] = TopicModelingGensim2.calcularGensim(contentJson, contentJson[0]['Letra concatenada'])
         return response    
 
 @app.route('/')

@@ -48,8 +48,8 @@ def calcular_jensen_shannon_sim_doc_doc(doc_dist1, doc_dist2):
 
 def calcularGensim(jsonDatos, texto1):
 
-    tuplas = list(zip([noticia.get("titulo") for noticia in jsonDatos],[noticia.get("letra") for noticia in jsonDatos]))
-    df = pd.DataFrame(tuplas, columns =['titulo', 'letra'])
+    tuplas = list(zip([noticia.get("titulo") for noticia in jsonDatos],[noticia.get("Letra concatenada") for noticia in jsonDatos]))
+    df = pd.DataFrame(tuplas, columns =['titulo', 'Letra concatenada'])
     print(df.shape)
     df.head()
 
