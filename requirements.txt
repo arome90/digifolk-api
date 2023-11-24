@@ -4,3 +4,4 @@ flask
 hermetrics
 semantic-text-similarity
 similarity_check
+matplotlib
